@@ -21,6 +21,18 @@ client.connect(err => {
     const adminList = client.db("courierX").collection("admin");
     const reviewList = client.db("courierX").collection("review");
 
+
+    app.get("/OrderDetails/:id", (req, res) => {
+        const id = req.params.id 
+        orderList.find({_id : ObjectID(id)})
+        .toArray((err,result) => {
+            console.log(err);
+            console.log(result);
+            res.send(result)
+        })
+    })
+
+
     app.post('/update/:id', (req, res)=>{
         const id = ObjectID(req.params.id)
         const info = req.body
