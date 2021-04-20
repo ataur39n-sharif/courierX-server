@@ -22,6 +22,16 @@ client.connect(err => {
     const reviewList = client.db("courierX").collection("review");
 
 
+    app.get("/review",(req, res) => {
+        reviewList.find({})
+        .toArray((err,result) => {
+            console.log(err);
+            console.log(result);
+            res.send(result);
+        })
+    })
+
+
     app.get("/OrderDetails/:id", (req, res) => {
         const id = req.params.id 
         orderList.find({_id : ObjectID(id)})
