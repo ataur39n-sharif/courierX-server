@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.hhwqe.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://ataur39n:superSecret@cluster0.hhwqe.mongodb.net/courierX?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
@@ -140,6 +140,14 @@ client.connect(err => {
         orderList.find({})
         .toArray((err,result) => {
             console.log(err);
+            res.send(result)
+            res.send(result)
+        })
+    })
+    app.delete('/deleteAll', (req, res)=>{
+        orderList.deleteMany({})
+        .then(result => {
+            console.log(result);
             res.send(result)
         })
     })
