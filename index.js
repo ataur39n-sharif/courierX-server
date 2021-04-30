@@ -6,9 +6,10 @@ const app = express();
 require('dotenv').config()
 
 
+
 app.use(cors());
 app.use(express.json());
-
+// app.use(setHeaders('"access controll allow origin","*”'));
 
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://ataur39n:superSecret@cluster0.hhwqe.mongodb.net/courierX?retryWrites=true&w=majority`;
