@@ -10,11 +10,6 @@ app.use(express.json());
 app.use(cors());
 
 
-// app.use(function (req, res, next) {
-//     res.setHeader('Access-Control-Allow-Origin','http://localhost:3000', '*');
-//     next();
-//   });
-
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://ataur39n:superSecret@cluster0.hhwqe.mongodb.net/courierX?retryWrites=true&w=majority`;
 
@@ -145,7 +140,6 @@ client.connect(err => {
         orderList.find({})
         .toArray((err,result) => {
             console.log(err);
-            res.send(result)
             res.send(result)
         })
     })
