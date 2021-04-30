@@ -1,5 +1,5 @@
 const express = require('express');
-// const cors = require('cors')
+const cors = require('cors')
 const ObjectID = require('mongodb').ObjectID
 
 const app = express();
@@ -7,13 +7,13 @@ require('dotenv').config()
 
 
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  });
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     next();
+//   });
 
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://ataur39n:superSecret@cluster0.hhwqe.mongodb.net/courierX?retryWrites=true&w=majority`;
